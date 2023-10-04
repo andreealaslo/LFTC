@@ -1,0 +1,77 @@
+p1. Compute the max/min of 3 numbers;
+
+
+functie max(INT a, INT b, INT c)
+{
+decideDaca [a>b si a>c] -> scrie(*Max number is*; a).
+decideDaca [b>a si b>c] -> scrie(*Max number is*; b).
+decideDaca [c>a si c>b] -> scrie(*Max number is*; c).
+}
+
+INT a  =  citeste(*Enter first number*).
+INT b  =  citeste(*Enter second number*).
+INT c  =  citeste(*Enter third number*).
+apel max(a, b, c).
+
+p2.Compute gdc of 2 numbers;
+
+functie gdc(INT a, INT b)
+{
+catTimp (a != b)
+	{
+	  decideDaca [a>b] -> a = a - b dacaNU -> b = b - a.
+	}
+}
+
+INT a  =  citeste(*Enter first number*).
+INT b  =  citeste(*Enter second number*).
+apel gdc(a, b).
+
+
+p3.Compute the sum of n numbers;
+
+functie sum(INT n)
+{
+LOCAL INT s=0.
+LOCAL INT i=0.
+LOCAL ARRAY v.
+catTimp ( n > 0 )
+	{ 
+	  LOCAL INT x = citeste().
+	  v.adauga(x).
+	  n--.
+	}
+catTimp (i < n)
+	{
+	  s = s+v[i].
+	  i++.
+	}
+}
+
+INT n  =  citeste(*Enter how many numbers you want to read*).
+apel sum(n).
+
+
+pError:
+functie sum(INT n)
+{
+INT s=0.
+LOCAL INT i=0.
+LOCAL ARRAY v.
+catTimp ( n > 0 )
+	{ 
+	  LOCAL INT x = citeste().
+	  v.adauga(x).
+	  n--.
+	}
+catTimp (i < n)
+	{
+	  s = s+v[i].
+	  i++
+	}
+}
+
+INT n  =  citeste(*Enter how many numbers you want to read*).
+apel sum(n).
+
+
