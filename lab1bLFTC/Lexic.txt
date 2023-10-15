@@ -1,0 +1,31 @@
+
+Lexic.txt
+
+1. Alphabet:
+	a. Upper letters (A-Z) and lower case letters (a-z) of the English alphabet
+	b. Decimal digits: 0-9
+
+2. Lexic:
+	a. Special symbols:
+		a. Operators:  +, -, x, /, %, //, =, !=, <, >, <=, >=, ==, ===, ++, --
+		b. Separators: (), [], {}, space, ., ->, *
+		c. Reserved words: decideDaca, dacaNu, scrie, citeste, apel, catTimp, pentru, INT, FLOAT, LONG, DOUBLE, CHAR, STRING, BOOL, ARRAY, LOCAL, definesteTu
+	b. Identifiers:
+		-identifier=letter{letter}
+		-letter= "a"|"b"|...|"z"
+	c. Contants:
+		a. integer: 
+			-integerConstant= ["+"|"-"]nonZeroD{digit}|"0"
+			-nonZeroD= "1"|...|"9"
+			-digit= "0"|"1"|...|"9"
+		b.character:
+			-characterConstant= "'"{letterAll}"'"|"'"{nonZeroD}"'"
+			-letterAll ::= "a"|"b"|...|"z"|"A"|...|"Z"|
+		c.string:
+			-stringConstant= "'"{characterConstant}"'"
+			
+			
+
+
+
+		

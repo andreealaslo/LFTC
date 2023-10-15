@@ -1,0 +1,22 @@
+RULES:
+
+program= statementList
+statementList= statement{statement}
+statement= declaration|assignmentStatement|ifStatement|whileStatement|function|callStatement|inputStatement|outputStatement
+declaration= type identifier"."
+decl= type identifier|type identifier","{decl}
+type= simpleTypes|arrayTypes|userDefinedTypes
+simpleTypes = "INT"|"FLOAT"|"LONG"|"DOUBLE"|"CHAR"|"STRING"|"BOOL"|"LOCAL INT"|...|"LOCAL BOOL"|
+arrayTypes= "ARRAY"|"LOCAL ARRAY"
+userDefineTypes= "definesteTu" identifier"."
+assignmentStatement= type identifier "=" expression"."|type identifier "=" inputStatement"."|type identifier "=" identifier"."|type identifier "=" constant"."
+ifStatement= "decideDaca""["condition"]""->"statement|"decideDaca""["condition"]""->"statement"dacaNU""->"statement
+whileStatement= "catTimp""("condition")""{"statementList"}"
+function= "functie"identifier"("decl")""{"statementList"}"
+callStatement= "apel" functie"."
+inputStatement= "scrie"(""*"string"*"";"identifier")""."
+outputStatement= "citeste""(""*"string"*"")""."
+expression= expression operand expression|"("expression operand expression")"|expression operand constant|expression operand identifier| identifier operand identifier| indentifier operand constant
+operand= "+"|"-"|"x"|"/"|"%"|"//"|"++"|"--"
+condition= expression relation expression
+relation= "="|"!="|"<"|">"|"<="|">="|"=="|"==="
