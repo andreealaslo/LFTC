@@ -10,7 +10,8 @@ simpleTypes = "INT"|"FLOAT"|"LONG"|"DOUBLE"|"CHAR"|"STRING"|"BOOL"|"LOCAL INT"|.
 arrayTypes= "ARRAY"|"LOCAL ARRAY"
 userDefineTypes= "definesteTu" identifier"."
 assignmentStatement= type identifier "=" expression"."|type identifier "=" inputStatement"."|type identifier "=" identifier"."|type identifier "=" constant"." 
-                                                                        // there are 2 cases: 1. you declare the variable and do the assignment there (LOCAL INT s=0.)
+                                                                        // there are 2 cases: 1. you declare the variable and do the assignment there
+                                                                        // (LOCAL INT s=0.)
                                                                         // 2. you already declared the variable and do the assignment later (s = s+v[i].)
                                                                         // so the "type" should be between [] as there could be a type or none
 ifStatement= "decideDaca""["condition"]""->"statement|"decideDaca""["condition"]""->"statement"dacaNU""->"statement
