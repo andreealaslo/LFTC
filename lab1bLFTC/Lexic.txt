@@ -9,7 +9,7 @@ Lexic.txt
 	a. Special symbols:
 		a. Operators:  +, -, x, /, %, //, =, !=, <, >, <=, >=, ==, ===, ++, --
 		b. Separators: (), [], {}, space, ., ->, *
-		c. Reserved words: decideDaca, dacaNu, scrie, citeste, apel, catTimp, pentru, INT, FLOAT, LONG, DOUBLE, CHAR, STRING, BOOL, ARRAY, LOCAL, definesteTu
+		c. Reserved words: decideDaca, dacaNu, scrie, citeste, apel, catTimp, pentru, INT, FLOAT, LONG, DOUBLE, CHAR, STRING, BOOL, ARRAY, LOCAL, definesteTu 									// you forgot about "functie" 
 	b. Identifiers:
 		-identifier=letter{letter}
 		-letter= "a"|"b"|...|"z"
@@ -19,7 +19,8 @@ Lexic.txt
 			-nonZeroD= "1"|...|"9"
 			-digit= "0"|"1"|...|"9"
 		b.character:
-			-characterConstant= "'"{letterAll}"'"|"'"{nonZeroD}"'"
+			-characterConstant= "'"{letterAll}"'"|"'"{nonZeroD}"'"	// i would replace "nonZeroD" with "digit" because the '0' character 
+										// could be useful in some situations
 			-letterAll ::= "a"|"b"|...|"z"|"A"|...|"Z"|
 		c.string:
 			-stringConstant= "'"{characterConstant}"'"
