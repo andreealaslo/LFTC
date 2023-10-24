@@ -9,7 +9,7 @@ Lexic.txt
 	a. Special symbols:
 		a. Operators:  +, -, x, /, %, //, =, !=, <, >, <=, >=, ==, ===, ++, --
 		b. Separators: (), [], {}, space, ., ->, *
-		c. Reserved words: decideDaca, dacaNu, scrie, citeste, apel, catTimp, pentru, INT, FLOAT, LONG, DOUBLE, CHAR, STRING, BOOL, ARRAY, LOCAL, definesteTu
+		c. Reserved words: decideDaca, dacaNu, scrie, citeste, apel, catTimp, pentru, INT, FLOAT, LONG, DOUBLE, CHAR, STRING, BOOL, ARRAY, LOCAL, definesteTu 									// you forgot about "functie"
 	b. Identifiers:
 		-identifier=letter{letter}
 		-letter= "a"|"b"|...|"z"
