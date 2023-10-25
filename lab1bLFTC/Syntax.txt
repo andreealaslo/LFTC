@@ -9,14 +9,24 @@ type= simpleTypes|arrayTypes|userDefinedTypes
 simpleTypes = "INT"|"FLOAT"|"LONG"|"DOUBLE"|"CHAR"|"STRING"|"BOOL"|"LOCAL INT"|...|"LOCAL BOOL"|
 arrayTypes= "ARRAY"|"LOCAL ARRAY"
 userDefineTypes= "definesteTu" identifier"."
-assignmentStatement= type identifier "=" expression"."|type identifier "=" inputStatement"."|type identifier "=" identifier"."|type identifier "=" constant"."
+assignmentStatement= type identifier "=" expression"."|type identifier "=" inputStatement"."|type identifier "=" identifier"."|type identifier "=" constant"." 
+                                                                        // there are 2 cases: 1. you declare the variable and do the assignment there
+                                                                        // (LOCAL INT s=0.)
+                                                                        // 2. you already declared the variable and do the assignment later (s = s+v[i].)
+                                                                        // so the "type" should be between [] as there could be a type or none
 ifStatement= "decideDaca""["condition"]""->"statement|"decideDaca""["condition"]""->"statement"dacaNU""->"statement
 whileStatement= "catTimp""("condition")""{"statementList"}"
 function= "functie"identifier"("decl")""{"statementList"}"
 callStatement= "apel" functie"."
-inputStatement= "scrie"(""*"string"*"";"identifier")""."
-outputStatement= "citeste""(""*"string"*"")""."
-expression= expression operand expression|"("expression operand expression")"|expression operand constant|expression operand identifier| identifier operand identifier| indentifier operand constant
+inputStatement= "scrie"(""*"string"*"";"identifier")""."                // this should be the output statement
+outputStatement= "citeste""(""*"string"*"")""."                         // this should be the input statement  
+                                                                        // you should also consider the case where you don't have any string inside 
+                                                                        // the (). so the string should be optional (x = citeste().)
+                                                                        // in your language, the input statemtn looks like 
+                                                                        // "type IDENTIFIER "=" "citeste" "(" ["*"string"*"] ")", so you should also 
+                                                                        // consider the assignment 
+expression= expression operand expression|"("expression operand expression")"|expression operand constant|expression operand identifier| identifier operand identifier| indentifier operand constant                                // don't forget about the case when it's "n--", so you should add "identifier operand"
 operand= "+"|"-"|"x"|"/"|"%"|"//"|"++"|"--"
 condition= expression relation expression
-relation= "="|"!="|"<"|">"|"<="|">="|"=="|"==="
+relation= "="|"!="|"<"|">"|"<="|">="|"=="|"==="                         // i believe "=" is an assignment operator, not a relational one so you should not include
+                                                                        // it here
