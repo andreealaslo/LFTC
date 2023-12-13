@@ -1,0 +1,13 @@
+class Grammar:
+	-we would suggest to erase the code that is commented and it is not used
+
+Parser:
+	-nice touch, the fact that you used enum data structure
+	-the comments for the specific functions for recursive descendent parser are very useful for someone which is seeing the code for the first time
+	-the granularity of the functions is very intuitive
+	-we would suggest to erase the code that is commented and it is not used
+	-clean code for the algorithms, they can be easily read and understand
+
+ParserOutput:
+	-we would suggest that each class should be in a separate file, the class Node may be moved in a separate file
+	
