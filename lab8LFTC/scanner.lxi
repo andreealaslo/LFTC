@@ -1,0 +1,38 @@
+%{
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+
+    int lines = 1;
+%}
+
+
+
+digit [0-9]
+nonZeroDigit [1-9]
+intConstant [+-]?{nonZeroDigit}{digit}*|0
+smallLetters [a-z]
+allLetters [a-zA-Z]
+punctuation [ .?!]
+stringConstant (\'({allLetters}|{digit}|{punctuation})*\')
+identifier {smallLetters}({smallLetters})*
+
+%%
+
+"decideDaca"|"dacaNU"|"si"|"scrie"|"citeste"|"apel"|"catTimp"|"pentru"|"INT"|"FLOAT"|"LONG"|"DOUBLE"|"CHAR"|"STRING"|"BOOL"|"ARRAY"|"LOCAL"|"definesteTu"|"functie" printf("%s - reserved word\n", yytext);
+"+"|"-"|"x"|"/"|"%"|"//"|"="|"!="|"<"|">"|"<="|">="|"=="|"==="|"++"|"--" printf("%s - operator\n", yytext);
+"("|")"|"{"|"}"|"["|"]"|"."|"->"|"*"|"'"|","|";" printf("%s - separator\n", yytext);
+{identifier} printf("%s - identifier\n", yytext);
+{intConstant} printf("%s - integer constant\n", yytext);
+{stringConstant} printf("%s - string constant\n", yytext);
+[ \t]+ {}
+[\n]+ {++lines;}
+. {printf("Error at token %s at line %d\n", yytext, lines); exit(1);}
+%%
+int main(int argc, char** argv) {
+    if (argc > 1) 
+        yyin = fopen(argv[1], "r");
+    else 
+        yyin = stdin;
+    yylex();
+}
