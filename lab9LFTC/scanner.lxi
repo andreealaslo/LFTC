@@ -1,0 +1,85 @@
+%{
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include "parser.tab.h"
+    int lines = 1;
+%}
+
+%option noyywrap
+%option caseless
+
+
+digit [0-9]
+nonZeroDigit [1-9]
+intConstant [+-]?{nonZeroDigit}{digit}*|0
+smallLetters [a-z]
+allLetters [a-zA-Z]
+punctuation [ .?!]
+stringConstant (\'({allLetters}|{digit}|{punctuation})*\')
+identifier {smallLetters}({smallLetters})*
+
+%%
+
+"decideDaca" {return DECIDEDACA;}
+"dacaNU" {return DACANU;}
+"si" {return SI;}
+"scrie" {return SCRIE;}
+"citeste" {return CITESTE;}
+"apel" {return APEL;}
+"catTimp" {return CATTIMP;}
+"pentru" {return PENTRU;}
+"INT" {return INT;}
+"FLOAT" {return FLOAT;}
+"LONG" {return LONG;}
+"DOUBLE" {return DOUBLE;}
+"CHAR" {return CHAR;}
+"STRING" {return STRING;}
+"BOOL" {return BOOL;}
+"ARRAY" {return ARRAY;}
+"LOCAL" {return LOCAL;}
+"definesteTu" {return DEFINESTETU;}
+"functie" {return FUNCTIE;}
+
+"+" {return PLUS;}
+"-" {return MINUS;}
+"x" {return TIMES;}
+"/" {return DIV;}
+"%" {return MOD;}
+"//" {return RDIV;}
+"=" {return EQUAL;}
+"!=" {return NOTEQUAL;}
+"<" {return LESS;}
+">" {return BIGGER;}
+"<=" {return LESSEQUAL;}
+">=" {return BIGGEREQUAL;}
+"==" {return EGALITY;}
+"===" {return TEGALITY;}
+"++" {return PLUSPLUS;}
+"--" {return MINUSMINUS;}
+
+"(" {return OPEN;}
+")" {return CLOSE;}
+"{" {return BRACKETOPEN;}
+"}" {return BRACKETCLOSE;}
+"[" {return SQBRACKETOPEN;}
+"]" {return SQBRACKETCLOSE;}
+"." {return DOT;}
+"->" {return ARROW;}
+"*" {return STAR;}
+"'" {return QUOTES;}
+"," {return COMMA;}
+";" {return SEMICOLON;}
+
+{identifier} {return IDENTIFIER;}
+{intConstant} {return INTCONSTANT;}
+{stringConstant} {return STRINGCONSTANT;}
+[ \t]+ {}
+[\n]+ {++lines;}
+. {printf("Error at token %s at line %d\n", yytext, lines); exit(1);}
+
+%%
+
+
+
+
